@@ -1,37 +1,43 @@
+import { defaultData } from "../constants/BeanConstants";
+
 async function getBeanInfo(
   category: string,
   pageIndex: number,
   pageSize: number
 ) {
-  const response = await fetch(
-    `https://jellybellywikiapi.onrender.com/api/${category}?pageIndex=${pageIndex}&pageSize=${pageSize}`
-  );
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `/api/${category}?pageIndex=${pageIndex}&pageSize=${pageSize}`
+    );
+
+    // Check if the response status is OK
+    if (!response.ok) {
+      console.error("Server returned an error:", response.statusText);
+      throw new Error(
+        `Server error: ${response.status} ${response.statusText}`
+      );
+    }
+
+    // If no content is returned, handle accordingly
+    if (response.status === 204) {
+      console.warn("No content returned from server.");
+      return defaultData;
+    }
+
+    // Check if the content-type is JSON
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      const data = await response.json();
+      return data;
+    } else {
+      const text = await response.text();
+      console.error("Unexpected content-type or non-JSON response:", text);
+      throw new Error("Expected JSON, but got something else");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw new Error("Failed to fetch data");
+  }
 }
 
-async function getBeanFacts() {
-  const response = await fetch(
-    `https://jellybellywikiapi.onrender.com/api/facts`
-  );
-  const data = await response.json();
-  return data;
-}
-
-async function getBeanMiles() {
-  const response = await fetch(
-    `https://jellybellywikiapi.onrender.com/api/mileStones`
-  );
-  const data = await response.json();
-  return data;
-}
-
-async function getBeanPages(pageIndex: number, pageSize: number) {
-  const response = await fetch(
-    `https://jellybellywikiapi.onrender.com/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
-  );
-  const data = await response.json();
-  return data;
-}
-
-export { getBeanInfo, getBeanFacts, getBeanMiles, getBeanPages };
+export { getBeanInfo };

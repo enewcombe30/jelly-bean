@@ -4,22 +4,30 @@ import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import useDropdownSelection from "./components/DropdownMenu/DropdownHooks/useDropdownSelection";
 import { getBeanInfo } from "./api-calls/jellyBeanApi";
 import { AllData, BeanResults } from "./types.ts/types";
+import { defaultData } from "./constants/BeanConstants";
 
 function App() {
-  const [results, setResults] = useState<AllData>();
+  const [results, setResults] = useState<AllData>(defaultData);
   const { handleDropdownSelection, selectedOption, dropdownOptions } =
     useDropdownSelection();
 
-  // console.log("results", results);
-
+  // Causing network error, look into srtting up proxy
   useEffect(() => {
     async function setData() {
-      const data = await getBeanInfo(selectedOption, 0, 20);
-      setResults(data);
-      return;
+      try {
+        const data = await getBeanInfo(selectedOption, 1, 200);
+        setResults(data);
+      } catch (error) {
+        console.error("Failed to fetch and parse data:", error);
+        // Optionally update state to show an error message to the user
+      }
     }
     setData();
   }, [selectedOption]);
+
+  useEffect(() => {
+    console.log("Updated results:", results);
+  }, [results]);
 
   return (
     <div className="w-full h-full">

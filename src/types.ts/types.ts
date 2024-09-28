@@ -9,8 +9,8 @@ export type AllData = {
   items: BeanResults;
 };
 
-export type BeanResults = { beans: Beans[] };
-export type Beans = {
+export type BeanResults = { beans: Bean[] };
+export type Bean = {
   groupName: string;
   flavorName: string;
   description: string;
