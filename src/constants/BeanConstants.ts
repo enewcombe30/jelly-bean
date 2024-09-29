@@ -23,12 +23,12 @@ export const defaultBean: Bean = {
   colorGroup: "",
   backgroundColor: "",
   imageUrl: "",
-  glutenFree: "",
-  sugarFree: "",
-  Seasonal: "",
+  glutenFree: false,
+  sugarFree: false,
+  Seasonal: false,
 };
 
-export const defaultResults: BeanResults = { beans: [defaultBean] };
+export const defaultResults: BeanResults = [defaultBean];
 
 export const defaultData: AllData = {
   totalCount: 99,

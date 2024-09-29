@@ -9,7 +9,7 @@ export type AllData = {
   items: BeanResults;
 };
 
-export type BeanResults = { beans: Bean[] };
+export type BeanResults = Bean[];
 export type Bean = {
   groupName: string;
   flavorName: string;
@@ -17,7 +17,7 @@ export type Bean = {
   colorGroup: string;
   backgroundColor: string;
   imageUrl: string;
-  glutenFree: string;
-  sugarFree: string;
-  Seasonal: string;
+  glutenFree: boolean;
+  sugarFree: boolean;
+  Seasonal: boolean;
 };
