@@ -1,11 +1,16 @@
 import "./App.css";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import useDropdownSelection from "./components/DropdownMenu/DropdownHooks/useDropdownSelection";
-import Results from "./components/Results/Results";
+import BeanResults from "./components/Results/BeanResults";
+import MilestoneResults from "./components/Results/MilestoneResults";
+import { getBeanInfo, getMilestones } from "./api-calls/jellyBeanApi";
 
 function App() {
   const { handleDropdownSelection, selectedOption, dropdownOptions } =
     useDropdownSelection();
+
+  console.log("info", getBeanInfo("mileStones", 1, 200));
+  console.log("Gmiles", getMilestones(1, 200));
 
   return (
     <div className="w-full h-full">
@@ -25,7 +30,11 @@ function App() {
           </div>
         </div>
         <div className="w-full">
-          <Results selectedOption={selectedOption} />
+          {selectedOption === "beans" ? (
+            <BeanResults selectedOption={selectedOption} />
+          ) : (
+            <MilestoneResults selectedOption={selectedOption} />
+          )}
         </div>
       </div>
     </div>

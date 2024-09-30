@@ -8,7 +8,11 @@ export default function useSearchSelection() {
 
   // update handle api to display selected jelly beans
   useEffect(() => {
-    selectedOption !== "" && getBeanInfo(3, 20);
+    setSelectedOption("beans");
+  }, []);
+
+  useEffect(() => {
+    selectedOption !== "" && getBeanInfo(selectedOption, 3, 20);
   }, [selectedOption]);
 
   const handleDropdownSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {

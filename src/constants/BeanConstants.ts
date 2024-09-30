@@ -4,17 +4,18 @@ import {
   AllData,
   Bean,
   BeanResults,
+  MileStone,
+  MileStones,
 } from "../types.ts/types";
-export const DEFAULT: DropdownOption = { value: "", label: "Select option" };
 export const BEANS: DropdownOption = { value: "beans", label: "Beans" };
 export const FACTS: DropdownOption = { value: "facts", label: "Facts" };
 export const MILESTONES: DropdownOption = {
-  value: "mileStones",
+  value: "milestones",
   label: "Milestones",
 };
 
 export const DROPDOWNOPTIONS: DropdownOptions = {
-  option: [DEFAULT, BEANS, FACTS, MILESTONES],
+  option: [BEANS, FACTS, MILESTONES],
 };
 export const defaultBean: Bean = {
   groupName: "",
@@ -27,6 +28,14 @@ export const defaultBean: Bean = {
   sugarFree: false,
   Seasonal: false,
 };
+
+export const defaultMilestone: MileStone = {
+  mileStoneId: 1,
+  year: 2000,
+  description: "",
+};
+
+export const defaultMilestones: MileStones = { items: [defaultMilestone] };
 
 export const defaultResults: BeanResults = [defaultBean];
 

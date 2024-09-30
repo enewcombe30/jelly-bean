@@ -21,3 +21,11 @@ export type Bean = {
   sugarFree: boolean;
   Seasonal: boolean;
 };
+
+export type MileStones = { items: MileStone[] };
+
+export type MileStone = {
+  mileStoneId: number;
+  year: number;
+  description: string;
+};

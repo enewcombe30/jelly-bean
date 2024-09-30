@@ -7,16 +7,16 @@ interface props {
   selectedOption: string;
 }
 
-export default function Results({ selectedOption }: props) {
+export default function BeanResults({ selectedOption }: props) {
   const [results, setResults] = useState<AllData>(defaultData);
   const lowerCase = results && results.items[0].backgroundColor.toLowerCase();
 
   useEffect(() => {
     async function setData() {
       try {
-        const data = await getBeanInfo(1, 200);
+        const data = await getBeanInfo(selectedOption, 1, 200);
         setResults(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Failed to fetch and parse data:", error);
         // Optionally update state to show an error message to the user
@@ -44,6 +44,7 @@ export default function Results({ selectedOption }: props) {
           src={bean.imageUrl}
           className="h-[8.5rem] w-[12rem] m-auto"
         />
+
         <div className="flex mx-auto w-fit font-bold">{bean.flavorName}</div>
       </div>
     ));
@@ -51,13 +52,10 @@ export default function Results({ selectedOption }: props) {
   }
 
   return (
-    <div>
-      {results && (
-        <div className="w-full flex flex-wrap">
-          <div>{renderBeans()}</div>
-          <>{renderGroups()}</>
-        </div>
-      )}
+    <div className="h-screen pb-[4rem]">
+      <div className="w-full h-screen overflow-scroll flex flex-wrap">
+        {renderBeans()}
+      </div>
     </div>
   );
 }
