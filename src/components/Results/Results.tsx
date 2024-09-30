@@ -14,8 +14,9 @@ export default function Results({ selectedOption }: props) {
   useEffect(() => {
     async function setData() {
       try {
-        const data = await getBeanInfo(selectedOption, 1, 200);
+        const data = await getBeanInfo(1, 200);
         setResults(data);
+        console.log(data);
       } catch (error) {
         console.error("Failed to fetch and parse data:", error);
         // Optionally update state to show an error message to the user
@@ -23,6 +24,14 @@ export default function Results({ selectedOption }: props) {
     }
     setData();
   }, [selectedOption]);
+
+  // adapt to set up dropdown filter
+  function renderGroups() {
+    const groups = results.items.filter(
+      (beans, index) => beans.colorGroup === "darkkhaki"
+    );
+    console.log("groups", groups);
+  }
 
   function renderBeans() {
     const bean = results.items.map((bean, index) => (
@@ -43,7 +52,12 @@ export default function Results({ selectedOption }: props) {
 
   return (
     <div>
-      {results && <div className="w-full flex flex-wrap">{renderBeans()}</div>}
+      {results && (
+        <div className="w-full flex flex-wrap">
+          <div>{renderBeans()}</div>
+          <>{renderGroups()}</>
+        </div>
+      )}
     </div>
   );
 }
