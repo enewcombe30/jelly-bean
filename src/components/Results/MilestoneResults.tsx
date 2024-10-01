@@ -24,9 +24,11 @@ export default function MilestoneResults({ selectedOption }: props) {
 
   function renderMilestones() {
     const milestone = results.items.map((mile, index) => (
-      <div key={index} className="flex border-b mb-2">
-        <div className="font-bold italic w-fit h-[2rem] mr-2">{mile.year}</div>
-        <div>{mile.description}</div>
+      <div key={index} className="border-b mb-2">
+        <div className="font-bold italic w-fit h-[2rem] mr-2 mb-2 text-xl">
+          {mile.year}
+        </div>
+        <div className="mb-2">{mile.description}</div>
       </div>
     ));
     return milestone;

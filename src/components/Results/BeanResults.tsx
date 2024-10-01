@@ -34,20 +34,26 @@ export default function BeanResults({ selectedOption }: props) {
   }
 
   function renderBeans() {
-    const bean = results.items.map((bean, index) => (
-      <div
-        className={`w-[18rem] h-fit border-2 border-[${lowerCase}] rounded-lg p-4 m-4`}
-        key={index}
-      >
-        <img
-          alt="jellyBean"
-          src={bean.imageUrl}
-          className="h-[8.5rem] w-[12rem] m-auto"
-        />
+    const bean = results.items.map((bean, index) => {
+      const bgColour = bean.backgroundColor;
+      return (
+        <div
+          className={`w-[18rem] h-fit border-2 border-slate-200 rounded-lg p-4 m-4 cursor-pointer`}
+          key={index}
+          style={{ borderColor: bgColour }}
+        >
+          <img
+            alt="jellyBean"
+            src={bean.imageUrl}
+            className="h-[8.5rem] w-[12rem] m-auto"
+          />
 
-        <div className="flex mx-auto w-fit font-bold">{bean.flavorName}</div>
-      </div>
-    ));
+          <div className={`flex mx-auto w-fit font-bold`}>
+            {bean.flavorName}
+          </div>
+        </div>
+      );
+    });
     return bean;
   }
 
