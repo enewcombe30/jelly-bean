@@ -1,5 +1,3 @@
-import { defaultData } from "../constants/BeanConstants";
-
 async function getBeanInfo(
   category: string,
   pageIndex: number,
