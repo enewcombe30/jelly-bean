@@ -10,13 +10,10 @@ interface props {
 export default function MilestoneResults({ selectedOption }: props) {
   const [results, setResults] = useState<MileStones>(defaultMilestones);
 
-  console.log("results", results);
-
   useEffect(() => {
     async function setData() {
       const data = await getMilestones(1, 200);
       setResults(data);
-      console.log(data);
     }
 
     setData();

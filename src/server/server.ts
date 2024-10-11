@@ -5,7 +5,7 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS for all routes (you can specify origins if needed)
+// Enable CORS for all routes
 app.use(cors());
 
 // Serve static files from the React app
@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, "../build")));
 // API route example
 app.get("/api/:category", (req: Request, res: Response) => {
   const { category } = req.params;
-  // Your logic here to handle the API request...
   res.json({ message: `Category requested: ${category}` });
 });
 
