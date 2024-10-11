@@ -19,7 +19,8 @@ export type Bean = {
   imageUrl: string;
   glutenFree: boolean;
   sugarFree: boolean;
-  Seasonal: boolean;
+  seasonal: boolean;
+  kosher: boolean;
 };
 
 export type MileStones = { items: MileStone[] };

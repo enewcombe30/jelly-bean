@@ -26,7 +26,8 @@ export const defaultBean: Bean = {
   imageUrl: "",
   glutenFree: false,
   sugarFree: false,
-  Seasonal: false,
+  seasonal: false,
+  kosher: false,
 };
 
 export const defaultMilestone: MileStone = {

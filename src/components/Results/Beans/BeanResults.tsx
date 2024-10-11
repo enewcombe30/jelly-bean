@@ -44,7 +44,7 @@ export default function BeanResults({ selectedOption }: props) {
   function renderBeans() {
     const bean = results.items.map((bean, index) => {
       return (
-        <div onClick={() => handleModal(index)}>
+        <div onClick={() => handleModal(index)} key={index}>
           <BeanDetail index={index} bean={bean} />
         </div>
       );
@@ -58,7 +58,7 @@ export default function BeanResults({ selectedOption }: props) {
         {renderBeans()}
       </div>
       {openModal && (
-        <div className="absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] m-auto">
+        <div className="fixed top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
           <BeanModal bean={beanInfo} setOpen={setOpenModal} />
         </div>
       )}
