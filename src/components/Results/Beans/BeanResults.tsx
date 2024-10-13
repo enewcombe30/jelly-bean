@@ -13,13 +13,13 @@ export default function BeanResults({ selectedOption }: props) {
   const [results, setResults] = useState<AllData>(defaultData);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [beanInfo, setBeanInfo] = useState<Bean>(defaultData.items[0]);
-  const lowerCase = results && results.items[0].backgroundColor.toLowerCase();
 
   useEffect(() => {
     async function setData() {
       try {
         const data = await getBeanInfo(selectedOption, 1, 200);
         setResults(data);
+        console.log(data);
       } catch (error) {
         console.error("Failed to fetch and parse data:", error);
       }

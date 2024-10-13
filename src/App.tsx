@@ -3,7 +3,6 @@ import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import useDropdownSelection from "./components/DropdownMenu/DropdownHooks/useDropdownSelection";
 import BeanResults from "./components/Results/Beans/BeanResults";
 import MilestoneResults from "./components/Results/MilestoneResults";
-import { getBeanInfo, getMilestones } from "./api-calls/jellyBeanApi";
 
 function App() {
   const { handleDropdownSelection, selectedOption, dropdownOptions } =

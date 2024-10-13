@@ -30,3 +30,6 @@ export type MileStone = {
   year: number;
   description: string;
 };
+
+export type colourGroup = { label: string; value: string };
+export type colourGroups = colourGroup[];
