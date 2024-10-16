@@ -1,4 +1,4 @@
-export type DropdownOptions = { option: DropdownOption[] };
+export type DropdownOptions = { options: DropdownOption[] };
 export type DropdownOption = { value: string; label: string };
 
 export type AllData = {
@@ -6,10 +6,8 @@ export type AllData = {
   pageSize: number;
   currentPage: number;
   totalPages: number;
-  items: BeanResults;
+  items: Bean[];
 };
-
-export type BeanResults = Bean[];
 export type Bean = {
   groupName: string;
   flavorName: string;
@@ -31,5 +29,5 @@ export type MileStone = {
   description: string;
 };
 
+export type colourGroups = { options: colourGroup[] };
 export type colourGroup = { label: string; value: string };
-export type colourGroups = colourGroup[];

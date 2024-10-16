@@ -7,10 +7,12 @@ import BeanModal from "./BeanModal";
 
 interface props {
   selectedOption: string;
+  searchOption: string;
 }
 
-export default function BeanResults({ selectedOption }: props) {
+export default function BeanResults({ selectedOption, searchOption }: props) {
   const [results, setResults] = useState<AllData>(defaultData);
+  const [beans, setBeans] = useState<Bean[]>(defaultData.items);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [beanInfo, setBeanInfo] = useState<Bean>(defaultData.items[0]);
 
@@ -19,7 +21,9 @@ export default function BeanResults({ selectedOption }: props) {
       try {
         const data = await getBeanInfo(selectedOption, 1, 200);
         setResults(data);
-        console.log(data);
+        console.log("data", data);
+        setBeans(results.items);
+        console.log("data beans", results.items);
       } catch (error) {
         console.error("Failed to fetch and parse data:", error);
       }
@@ -27,22 +31,28 @@ export default function BeanResults({ selectedOption }: props) {
     setData();
   }, [selectedOption]);
 
-  // adapt to set up dropdown filter
-  function renderGroups() {
-    const groups = results.items.filter(
-      (beans, index) => beans.colorGroup === "darkkhaki"
-    );
-    console.log("groups", groups);
-  }
-
   function handleModal(index: number) {
     setBeanInfo(results.items[index]);
     setOpenModal(!openModal);
     console.log(beanInfo);
   }
 
+  useEffect(() => {
+    function renderGroups() {
+      if (searchOption === "") {
+        setBeans(results.items);
+        return;
+      }
+      const groups = results.items.filter(
+        (bean) => bean.colorGroup === searchOption
+      );
+      setBeans(groups);
+    }
+    renderGroups();
+  }, [searchOption]);
+
   function renderBeans() {
-    const bean = results.items.map((bean, index) => {
+    const bean = beans.map((bean, index) => {
       return (
         <div onClick={() => handleModal(index)} key={index}>
           <BeanDetail index={index} bean={bean} />

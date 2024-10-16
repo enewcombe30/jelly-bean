@@ -12,9 +12,9 @@ export default function DropdownMenu({
   options,
 }: props) {
   return (
-    <div>
+    <div className="my-2">
       <select value={selectedOption} onChange={handleSelection}>
-        {options.option.map((option, index) => (
+        {options.options.map((option, index) => (
           <option key={index} value={option.value}>
             <>{option.label}</>
           </option>
