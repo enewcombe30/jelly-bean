@@ -42,7 +42,7 @@ export default function MilestoneResults({ selectedOption }: props) {
           <Spinner />
         </div>
       ) : (
-        <div className="my-8 w-full pr-[14rem] h-fit pb-12">
+        <div className="h-screen overflow-scroll flex flex-wrap items-center justify-center py-12 pr-24">
           <div>{renderMilestones()}</div>
         </div>
       )}

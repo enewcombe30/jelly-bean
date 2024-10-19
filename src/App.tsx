@@ -50,7 +50,7 @@ function App() {
           )}
         </div>
       </div>
-      <div className="w-full fixed bottom-0 h-[4rem] border-t bg-white"></div>
+      {/* <div className="w-full fixed bottom-0 h-[4rem] border-t bg-white"></div> */}
     </div>
   );
 }

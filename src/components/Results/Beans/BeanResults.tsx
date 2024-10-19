@@ -74,7 +74,7 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
             <Spinner />
           </div>
         ) : (
-          <div className="h-screen overflow-scroll flex flex-wrap items-center justify-center pb-24">
+          <div className="h-screen overflow-scroll flex flex-wrap items-center justify-center py-12">
             {renderBeans()}
           </div>
         )}
