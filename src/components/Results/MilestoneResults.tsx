@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMilestones } from "../../api-calls/jellyBeanApi";
 import { MileStones } from "../../types.ts/types";
 import { defaultMilestones } from "../../constants/BeanConstants";
+import Spinner from "../Spinner/Spinner";
 
 interface props {
   selectedOption: string;
@@ -9,11 +10,14 @@ interface props {
 
 export default function MilestoneResults({ selectedOption }: props) {
   const [results, setResults] = useState<MileStones>(defaultMilestones);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     async function setData() {
       const data = await getMilestones(1, 200);
       setResults(data);
+      setLoading(false);
     }
 
     setData();
@@ -32,8 +36,16 @@ export default function MilestoneResults({ selectedOption }: props) {
   }
 
   return (
-    <div className="my-8 w-full pr-[14rem]">
-      <div>{renderMilestones()}</div>
+    <div>
+      {loading ? (
+        <div className="h-screen flex items-center justify-center">
+          <Spinner />
+        </div>
+      ) : (
+        <div className="my-8 w-full pr-[14rem] h-fit pb-12">
+          <div>{renderMilestones()}</div>
+        </div>
+      )}
     </div>
   );
 }

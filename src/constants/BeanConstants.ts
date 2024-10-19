@@ -50,7 +50,7 @@ export const defaultData: AllData = {
 
 export const COLOURGROUPS: colourGroups = {
   options: [
-    { label: "Select Option", value: "" },
+    { label: "All", value: "" },
     { label: "Dark Kakhi", value: "darkkhaki" },
     { label: "Khaki", value: "khaki" },
     { label: "Gainsboro", value: "gainsboro" },

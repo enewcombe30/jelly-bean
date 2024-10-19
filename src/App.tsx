@@ -16,11 +16,10 @@ function App() {
   const isBeanPage = selectedOption === "beans";
 
   return (
-    <div className="w-full h-full">
-      <div className="w-fit m-auto">Jelly Bean</div>
-      <div className="flex pt-[4rem]">
-        <div className="w-[20rem] h-screen">
-          <div className="w-fit h-[4rem] mx-auto">
+    <div className="w-screen h-screen">
+      <div className="flex">
+        <div className="w-[20rem] h-screen fixed bg-white border-r-2 mr-8 pt-12">
+          <div className="w-fit mx-auto">
             <div>
               <DropdownMenu
                 selectedOption={selectedOption}
@@ -40,7 +39,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full pt-12 ml-[22rem]">
           {isBeanPage ? (
             <BeanResults
               selectedOption={selectedOption}
@@ -51,6 +50,7 @@ function App() {
           )}
         </div>
       </div>
+      <div className="w-full fixed bottom-0 h-[4rem] border-t bg-white"></div>
     </div>
   );
 }

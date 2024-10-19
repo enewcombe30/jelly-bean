@@ -4,6 +4,7 @@ import { defaultData } from "../../../constants/BeanConstants";
 import { getBeanInfo } from "../../../api-calls/jellyBeanApi";
 import BeanDetail from "./BeanDetail";
 import BeanModal from "./BeanModal";
+import Spinner from "../../Spinner/Spinner";
 
 interface props {
   selectedOption: string;
@@ -15,17 +16,19 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
   const [beans, setBeans] = useState<Bean[]>(defaultData.items);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [beanInfo, setBeanInfo] = useState<Bean>(defaultData.items[0]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function setData() {
+      setLoading(true);
       try {
         const data = await getBeanInfo(selectedOption, 1, 200);
         setResults(data);
-        console.log("data", data);
-        setBeans(results.items);
-        console.log("data beans", results.items);
+        setBeans(data.items);
+        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch and parse data:", error);
+        setLoading(false);
       }
     }
     setData();
@@ -34,7 +37,6 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
   function handleModal(index: number) {
     setBeanInfo(results.items[index]);
     setOpenModal(!openModal);
-    console.log(beanInfo);
   }
 
   useEffect(() => {
@@ -52,26 +54,36 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
   }, [searchOption]);
 
   function renderBeans() {
-    const bean = beans.map((bean, index) => {
-      return (
-        <div onClick={() => handleModal(index)} key={index}>
-          <BeanDetail index={index} bean={bean} />
-        </div>
-      );
-    });
+    const bean =
+      beans &&
+      beans.map((bean, index) => {
+        return (
+          <div onClick={() => handleModal(index)} key={index}>
+            <BeanDetail index={index} bean={bean} />
+          </div>
+        );
+      });
     return bean;
   }
 
   return (
-    <div className="h-screen pb-[4rem]">
-      <div className="w-full h-screen overflow-scroll flex flex-wrap">
-        {renderBeans()}
+    <>
+      <div className="">
+        {loading ? (
+          <div className="h-screen flex items-center justify-center">
+            <Spinner />
+          </div>
+        ) : (
+          <div className="h-screen overflow-scroll flex flex-wrap items-center justify-center pb-24">
+            {renderBeans()}
+          </div>
+        )}
+        {openModal && (
+          <div className="fixed top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
+            <BeanModal bean={beanInfo} setOpen={setOpenModal} />
+          </div>
+        )}
       </div>
-      {openModal && (
-        <div className="fixed top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
-          <BeanModal bean={beanInfo} setOpen={setOpenModal} />
-        </div>
-      )}
-    </div>
+    </>
   );
 }
