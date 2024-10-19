@@ -8,14 +8,13 @@ import {
   colourGroups,
 } from "../types.ts/types";
 export const BEANS: DropdownOption = { value: "beans", label: "Beans" };
-export const FACTS: DropdownOption = { value: "facts", label: "Facts" };
 export const MILESTONES: DropdownOption = {
   value: "milestones",
   label: "Milestones",
 };
 
 export const DROPDOWNOPTIONS: DropdownOptions = {
-  options: [BEANS, FACTS, MILESTONES],
+  options: [BEANS, MILESTONES],
 };
 export const defaultBean: Bean = {
   groupName: "",
