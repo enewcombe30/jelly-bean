@@ -11,6 +11,7 @@ interface props {
 export default function MilestoneResults({ selectedOption }: props) {
   const [results, setResults] = useState<MileStones>(defaultMilestones);
   const [loading, setLoading] = useState<boolean>(false);
+  const isMilestone = selectedOption === "milestones";
 
   useEffect(() => {
     setLoading(true);
@@ -21,7 +22,7 @@ export default function MilestoneResults({ selectedOption }: props) {
     }
 
     setData();
-  }, [selectedOption === "milestones"]);
+  }, [isMilestone]);
 
   function renderMilestones() {
     const milestone = results.items.map((mile, index) => (

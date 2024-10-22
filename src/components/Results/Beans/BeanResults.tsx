@@ -17,6 +17,7 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [beanInfo, setBeanInfo] = useState<Bean>(defaultData.items[0]);
   const [loading, setLoading] = useState<boolean>(false);
+  const beanItems = results.items;
 
   useEffect(() => {
     async function setData() {
@@ -42,7 +43,7 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
   useEffect(() => {
     function renderGroups() {
       if (searchOption === "") {
-        setBeans(results.items);
+        setBeans(beanItems);
         return;
       }
       const groups = results.items.filter(
@@ -51,7 +52,7 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
       setBeans(groups);
     }
     renderGroups();
-  }, [searchOption]);
+  }, [searchOption, beanItems]);
 
   function renderBeans() {
     const bean =
