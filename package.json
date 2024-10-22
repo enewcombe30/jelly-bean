@@ -1,7 +1,7 @@
 {
-  "homepage": "https://enewcombe30.github.io/jelly-beans",
   "name": "jelly-beans",
   "version": "0.1.0",
+  "homepage": "https://enewcombe30.github.io/jelly-beans",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
