@@ -1,4 +1,5 @@
-const apiBaseUrl = process.env.REACT_APP_API_URL;
+const apiBaseUrl =
+  process.env.REACT_APP_API_URL || "https://jellybellywikiapi.onrender.com"; // Fallback for local testing
 
 async function getBeanInfo(
   category: string,
@@ -23,7 +24,7 @@ async function getBeanInfo(
 async function getMilestones(pageIndex: number, pageSize: number) {
   try {
     const response = await fetch(
-      `/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
+      `${apiBaseUrl}/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
