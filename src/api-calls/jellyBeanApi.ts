@@ -1,4 +1,4 @@
-const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/"; // Fallback for local development
+const apiBaseUrl = process.env.REACT_APP_API_URL;
 
 async function getBeanInfo(
   category: string,

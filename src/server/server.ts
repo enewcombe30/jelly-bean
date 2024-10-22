@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS for all routes
 app.use(
   cors({
-    origin: "https://enewcombe30.github.io", // Allow requests from your frontend
+    origin: ["http://localhost:3000", "https://enewcombe30.github.io"], // Allow requests from your frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
