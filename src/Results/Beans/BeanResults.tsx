@@ -1,7 +1,7 @@
 import BeanDetail from "./BeanDetail";
 import BeanModal from "./BeanModal";
-import Spinner from "../../../Spinner/Spinner";
-import useBeanResults from "../hooks/useBeanResults";
+import Spinner from "../../components/Spinner/Spinner";
+import useBeanResults from "./hooks/useBeanResults";
 
 interface props {
   selectedOption: string;

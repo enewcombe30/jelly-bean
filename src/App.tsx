@@ -1,8 +1,8 @@
 import "./App.css";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import useDropdownSelection from "./components/DropdownMenu/DropdownHooks/useDropdownSelection";
-import BeanResults from "./components/Results/Beans/components/BeanResults";
-import MilestoneResults from "./components/Results/Milestones/components/MilestoneResults";
+import BeanResults from "./Results/Beans/BeanResults";
+import MilestoneResults from "./Results/Milestones/MilestoneResults";
 
 function App() {
   const {

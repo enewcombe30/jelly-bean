@@ -1,5 +1,5 @@
-import { Bean } from "../../../../types.ts/types";
-import { FormatBoolean } from "../../../../api-calls/hooks/helpers/FormatBoolean";
+import { Bean } from "../../types.ts/types";
+import { FormatBoolean } from "../../api-calls/hooks/helpers/FormatBoolean";
 
 interface props {
   bean: Bean;

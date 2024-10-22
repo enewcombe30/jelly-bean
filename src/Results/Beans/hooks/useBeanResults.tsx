@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { AllData, Bean } from "../../../../types.ts/types";
-import { defaultData } from "../../../../constants/BeanConstants";
-import { getBeanInfo } from "../../../../api-calls/jellyBeanApi";
+import { AllData, Bean } from "../../../types.ts/types";
+import { defaultData } from "../../../constants/JellyBeanConstants";
+import { getBeanInfo } from "../../../api-calls/jellyBeanApi";
 
 export default function useBeanResults(
   selectedOption: string,

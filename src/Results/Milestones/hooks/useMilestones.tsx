@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { MileStones } from "../../../../types.ts/types";
-import { defaultMilestones } from "../../../../constants/BeanConstants";
-import { getMilestones } from "../../../../api-calls/jellyBeanApi";
+import { MileStones } from "../../../types.ts/types";
+import { defaultMilestones } from "../../../constants/JellyBeanConstants";
+import { getMilestones } from "../../../api-calls/jellyBeanApi";
 
 export default function useMilestones(selectedOption: string) {
   const [results, setResults] = useState<MileStones>(defaultMilestones);

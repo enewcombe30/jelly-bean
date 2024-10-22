@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   COLOURGROUPS,
   DROPDOWNOPTIONS,
-} from "../../../constants/BeanConstants";
+} from "../../../constants/JellyBeanConstants";
 
 export default function useSearchSelection() {
   const dropdownOptions = DROPDOWNOPTIONS;
