@@ -23,7 +23,7 @@ async function getBeanInfo(
 async function getMilestones(pageIndex: number, pageSize: number) {
   try {
     const response = await fetch(
-      `${apiBaseUrl}/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
+      `/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
