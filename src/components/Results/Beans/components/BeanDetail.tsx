@@ -1,4 +1,4 @@
-import { Bean } from "../../../types.ts/types";
+import { Bean } from "../../../../types.ts/types";
 
 interface props {
   index: number;

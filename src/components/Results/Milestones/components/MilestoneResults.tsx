@@ -1,28 +1,12 @@
-import { useEffect, useState } from "react";
-import { getMilestones } from "../../api-calls/jellyBeanApi";
-import { MileStones } from "../../types.ts/types";
-import { defaultMilestones } from "../../constants/BeanConstants";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../../../Spinner/Spinner";
+import useMilestones from "../hooks/useMilestones";
 
 interface props {
   selectedOption: string;
 }
 
 export default function MilestoneResults({ selectedOption }: props) {
-  const [results, setResults] = useState<MileStones>(defaultMilestones);
-  const [loading, setLoading] = useState<boolean>(false);
-  const isMilestone = selectedOption === "milestones";
-
-  useEffect(() => {
-    setLoading(true);
-    async function setData() {
-      const data = await getMilestones(1, 200);
-      setResults(data);
-      setLoading(false);
-    }
-
-    setData();
-  }, [isMilestone]);
+  const { results, loading } = useMilestones(selectedOption);
 
   function renderMilestones() {
     const milestone = results.items.map((mile, index) => (

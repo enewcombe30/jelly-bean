@@ -32,7 +32,7 @@ async function getMilestones(pageIndex: number, pageSize: number) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching mile data:", error);
+    console.error("Error fetching milestone data:", error);
     throw new Error("Failed to fetch mile data");
   }
 }
