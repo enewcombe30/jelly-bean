@@ -1,3 +1,5 @@
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/"; // Fallback for local development
+
 async function getBeanInfo(
   category: string,
   pageIndex: number,
@@ -5,7 +7,7 @@ async function getBeanInfo(
 ) {
   try {
     const response = await fetch(
-      `/api/${category}?pageIndex=${pageIndex}&pageSize=${pageSize}`
+      `${apiBaseUrl}/api/${category}?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
@@ -21,7 +23,7 @@ async function getBeanInfo(
 async function getMilestones(pageIndex: number, pageSize: number) {
   try {
     const response = await fetch(
-      `api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
+      `${apiBaseUrl}/api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
