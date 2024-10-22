@@ -37,7 +37,7 @@ export default function useBeanResults(
   useEffect(() => {
     function renderGroups() {
       if (searchOption === "") {
-        setBeans(results.items);
+        setBeans(beanItems);
         return;
       }
       const groups = beanItems.filter(

@@ -1,5 +1,5 @@
 import Spinner from "../../components/Spinner/Spinner";
-import { MileStone, MileStones } from "../../types.ts/types";
+import { MileStone } from "../../types.ts/types";
 import useMilestones from "./hooks/useMilestones";
 
 interface props {
