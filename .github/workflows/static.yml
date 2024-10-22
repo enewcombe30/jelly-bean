@@ -31,6 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Clear Node.js cache
+        run: npm cache clean --force
+
       # Install dependencies
       - name: Install dependencies
         run: npm install
