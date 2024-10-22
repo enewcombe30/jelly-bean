@@ -7,6 +7,9 @@ async function getBeanInfo(
     const response = await fetch(
       `/api/${category}?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
     const data = await response.json();
     return data;
   } catch (error) {
@@ -20,6 +23,9 @@ async function getMilestones(pageIndex: number, pageSize: number) {
     const response = await fetch(
       `api/mileStones?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
     const data = await response.json();
     return data;
   } catch (error) {
