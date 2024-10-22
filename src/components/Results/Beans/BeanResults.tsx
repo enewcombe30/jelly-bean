@@ -46,7 +46,7 @@ export default function BeanResults({ selectedOption, searchOption }: props) {
         setBeans(beanItems);
         return;
       }
-      const groups = results.items.filter(
+      const groups = beanItems.filter(
         (bean) => bean.colorGroup === searchOption
       );
       setBeans(groups);
