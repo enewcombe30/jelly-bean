@@ -14,7 +14,7 @@
 
 ## Project Overview
 
-This project gains essential information about your favourite jelly bean flavours with Jelly Bean :tm: company milestones. This app is designed to demonstrate my ability to parse information from an API and display the data in reusable components. I have also added a simple filter allowing the user to filter the results by colour. 
+This project gains essential information about your favourite jelly bean flavours with Jelly Bean :tm: company milestones. This app is designed to demonstrate my ability to parse information from an API and display the data in reusable components. I have also added a simple filter allowing the user to filter the results by colour.
 This project is a React application developed with TypeScript. It uses Tailwind CSS for styling, and it’s set up to deploy automatically to GitHub Pages using a GitHub Actions workflow.
 
 ## Features
@@ -25,17 +25,17 @@ This project is a React application developed with TypeScript. It uses Tailwind 
 
 ## Project Screen Shots
 
-#### Overview:   
+#### Overview:
 
-<img width="1367" alt="Screenshot 2024-11-05 at 12 46 56" src="https://github.com/user-attachments/assets/62d11094-b3a5-472c-8bdc-beaaf7c1d910">
+<img width="1367" alt="full page image" src="https://github.com/user-attachments/assets/62d11094-b3a5-472c-8bdc-beaaf7c1d910">
 
 #### Bean Detail:
 
-<img width="781" alt="Screenshot 2024-11-05 at 12 47 07" src="https://github.com/user-attachments/assets/12e269ec-97b4-4338-8cc6-cd078d8282f0">
+<img width="781" alt="Bean Modal" src="https://github.com/user-attachments/assets/12e269ec-97b4-4338-8cc6-cd078d8282f0">
 
 #### Filtered Results
 
-<img width="1371" alt="Screenshot 2024-11-05 at 12 47 28" src="https://github.com/user-attachments/assets/65c85cd6-0cd4-4810-b5bf-feb8b6018c4f">
+<img width="1371" alt="Filtered Results" src="https://github.com/user-attachments/assets/65c85cd6-0cd4-4810-b5bf-feb8b6018c4f">
 
 ## Getting Started
 
@@ -46,19 +46,19 @@ This project is a React application developed with TypeScript. It uses Tailwind 
 
 ### Installation
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
 Installation:
 
-`npm install`  
+`npm install`
 
 To Start Server:
 
-`npm run start:client`  
+`npm run start:client`
 
 To Visit App:
 
-`localhost:3000/jelly-bean`  
+`localhost:3000/jelly-bean`
 
 ### Server Setup and API Endpoints
 
@@ -67,6 +67,7 @@ This section outlines the server setup and API routes for handling requests in t
 #### Key Features
 
 - **CORS Configuration**: The server is configured to allow Cross-Origin Resource Sharing (CORS) for specific origins (e.g., `http://localhost:3000` for local development and `https://enewcombe30.github.io` for the deployed frontend). This ensures that the server can accept requests from these origins while supporting the following HTTP methods:
+
   - `GET`
   - `POST`
   - `PUT`
@@ -75,6 +76,7 @@ This section outlines the server setup and API routes for handling requests in t
 - **Static File Serving**: The server serves static files from the React application's build directory. This allows users to access the frontend assets directly from the server.
 
 - **API Endpoint**: An example API endpoint is provided:
+
   - **GET /api/:category**: This endpoint accepts a category as a URL parameter and returns a JSON response indicating the requested category. For example, a request to `/api/some-category` will respond with:
     ```json
     {
@@ -91,19 +93,17 @@ The server listens on a specified port (defaulting to `5000` if not defined in t
 ## Reflection
 
 **Why build this app?**
-Having worked with api calls on a daily basis in my previous role as Frontend Dev at fern and being unable to display any of the functions as they are not open source, I built this app to demonstrate my ability working with APIs. Having other projects that purely gain information from an API, this project has an added filter so the user can filter the results by colour. 
+Having worked with api calls on a daily basis in my previous role as Frontend Dev at fern and being unable to display any of the functions as they are not open source, I built this app to demonstrate my ability working with APIs. Having other projects that purely gain information from an API, this project has an added filter so the user can filter the results by colour.
 
-
-**What did I set out to build?** 
+**What did I set out to build?**
 This project was built to demonstrate that I can use an API to gather information and display it with an added filter to display user defined results. This app is focused on functionality with very basic UI.
 
-
 **Was this project challenging and therefore a really good learning experience?**
-The [Jelly Bean Wiki](https://jelly-belly-wiki.netlify.app/) API requires extra steps handle Cross-Origin Resource Sharing which had not been something I'd covered in previous projects which provided valuable learning oppotunities. 
+The [Jelly Bean Wiki](https://jelly-belly-wiki.netlify.app/) API requires extra steps handle Cross-Origin Resource Sharing which had not been something I'd covered in previous projects which provided valuable learning oppotunities.
 
+## Feedback:
 
-## Feedback:  
+Feedback is always welcome so if you have any questions, spot errors or think this app can be improved in any way feel free to drop me a message on either:
 
-Feedback is always welcome so if you have any questions, spot errors or think this app can be improved in any way feel free to drop me a message on either: 
 - **email**: [enewcombe30@gmail.com](mailto:enewcombe30@gmail.com)
 - **LinkedIn** [enewcombe30](https://www.linkedin.com/in/enewcombe30)
