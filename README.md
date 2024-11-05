@@ -1,46 +1,109 @@
-# Getting Started with Create React App
+## Jelly Bean
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Project Screen Shots](#project-screen-shots)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Server Setup and API Endpoints](#server-setup-and-api-endpoints)
+- [Reflection](#reflection)
+- [Feedback](#feedback)
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+This project gains essential information about your favourite jelly bean flavours with Jelly Bean :tm: company milestones. This app is designed to demonstrate my ability to parse information from an API and display the data in reusable components. I have also added a simple filter allowing the user to filter the results by colour. 
+This project is a React application developed with TypeScript. It uses Tailwind CSS for styling, and it’s set up to deploy automatically to GitHub Pages using a GitHub Actions workflow.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Developed using React with TypeScript.
+- Styled with Tailwind CSS for rapid UI design.
+- Automatically deployed to GitHub Pages via GitHub Actions.
 
-### `npm test`
+## Project Screen Shots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Overview:   
 
-### `npm run build`
+<img width="1367" alt="Screenshot 2024-11-05 at 12 46 56" src="https://github.com/user-attachments/assets/62d11094-b3a5-472c-8bdc-beaaf7c1d910">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Bean Detail:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="781" alt="Screenshot 2024-11-05 at 12 47 07" src="https://github.com/user-attachments/assets/12e269ec-97b4-4338-8cc6-cd078d8282f0">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Filtered Results
 
-### `npm run eject`
+<img width="1371" alt="Screenshot 2024-11-05 at 12 47 28" src="https://github.com/user-attachments/assets/65c85cd6-0cd4-4810-b5bf-feb8b6018c4f">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Node.js** (version 16 or later recommended)
+- **npm** (Node package manager)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installation
 
-## Learn More
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Installation:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm install`  
+
+To Start Server:
+
+`npm run start:client`  
+
+To Visit App:
+
+`localhost:3000/jelly-bean`  
+
+### Server Setup and API Endpoints
+
+This section outlines the server setup and API routes for handling requests in this project. The server is built using **Express.js**, a popular web framework for Node.js, and is configured to serve a React application along with an example API endpoint.
+
+#### Key Features
+
+- **CORS Configuration**: The server is configured to allow Cross-Origin Resource Sharing (CORS) for specific origins (e.g., `http://localhost:3000` for local development and `https://enewcombe30.github.io` for the deployed frontend). This ensures that the server can accept requests from these origins while supporting the following HTTP methods:
+  - `GET`
+  - `POST`
+  - `PUT`
+  - `DELETE`
+
+- **Static File Serving**: The server serves static files from the React application's build directory. This allows users to access the frontend assets directly from the server.
+
+- **API Endpoint**: An example API endpoint is provided:
+  - **GET /api/:category**: This endpoint accepts a category as a URL parameter and returns a JSON response indicating the requested category. For example, a request to `/api/some-category` will respond with:
+    ```json
+    {
+      "message": "Category requested: some-category"
+    }
+    ```
+
+- **Fallback to React App**: For any other routes, the server will respond by sending the `index.html` file of the React application. This setup allows the React Router to handle client-side routing.
+
+#### Starting the Server
+
+The server listens on a specified port (defaulting to `5000` if not defined in the environment variables). When the server is running, it will log the port number in the console, indicating that it is ready to accept requests.
+
+## Reflection
+
+**Why build this app?**
+Having worked with api calls on a daily basis in my previous role as Frontend Dev at fern and being unable to display any of the functions as they are not open source, I built this app to demonstrate my ability working with APIs. Having other projects that purely gain information from an API, this project has an added filter so the user can filter the results by colour. 
+
+
+**What did I set out to build?** 
+This project was built to demonstrate that I can use an API to gather information and display it with an added filter to display user defined results. This app is focused on functionality with very basic UI.
+
+
+**Was this project challenging and therefore a really good learning experience?**
+The [Jelly Bean Wiki](https://jelly-belly-wiki.netlify.app/) API requires extra steps handle Cross-Origin Resource Sharing which had not been something I'd covered in previous projects which provided valuable learning oppotunities. 
+
+
+## Feedback:  
+
+Feedback is always welcome so if you have any questions, spot errors or think this app can be improved in any way feel free to drop me a message on either: 
+- **email**: [enewcombe30@gmail.com](mailto:enewcombe30@gmail.com)
+- **LinkedIn** [enewcombe30](https://www.linkedin.com/in/enewcombe30)
