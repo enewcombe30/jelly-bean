@@ -60,35 +60,6 @@ To Visit App:
 
 `localhost:3000/jelly-bean`
 
-### Server Setup and API Endpoints
-
-This section outlines the server setup and API routes for handling requests in this project. The server is built using **Express.js**, a popular web framework for Node.js, and is configured to serve a React application along with an example API endpoint.
-
-#### Key Features
-
-- **CORS Configuration**: The server is configured to allow Cross-Origin Resource Sharing (CORS) for specific origins (e.g., `http://localhost:3000` for local development and `https://enewcombe30.github.io` for the deployed frontend). This ensures that the server can accept requests from these origins while supporting the following HTTP methods:
-
-  - `GET`
-  - `POST`
-  - `PUT`
-  - `DELETE`
-
-- **Static File Serving**: The server serves static files from the React application's build directory. This allows users to access the frontend assets directly from the server.
-
-- **API Endpoint**: An example API endpoint is provided:
-
-  - **GET /api/:category**: This endpoint accepts a category as a URL parameter and returns a JSON response indicating the requested category. For example, a request to `/api/some-category` will respond with:
-    ```json
-    {
-      "message": "Category requested: some-category"
-    }
-    ```
-
-- **Fallback to React App**: For any other routes, the server will respond by sending the `index.html` file of the React application. This setup allows the React Router to handle client-side routing.
-
-#### Starting the Server
-
-The server listens on a specified port (defaulting to `5000` if not defined in the environment variables). When the server is running, it will log the port number in the console, indicating that it is ready to accept requests.
 
 ## Reflection
 
